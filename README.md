@@ -1,12 +1,9 @@
 # Qt-2
 
-С использованием библиотеки Qt реализовать графический класс содержащий коллекцию фигур: прямоугольников, треугольников, эллипсов.
+Qt lab — 2D draggable shapes canvas. Two separate implementations (lab7, lab72).
 
-В классе должны быть методы для добавления новых фигур и удаления старых. Реализовать графический интерфейс позволяющий проверить работу этих методов.
+**lab7** — manual rendering via `paintEvent` / `mousePressEvent` / `mouseMoveEvent` / `mouseReleaseEvent`. Shapes (rectangle, triangle, ellipse) inherit from `Shape`; clicking a shape activates it (brings to front); only the active shape moves under the cursor. Bounding box used for hit detection.
 
-Каждая фигура должны представлять из себя объект, который можно перемещать при помощи курсора, а также делать активным (объект поднимается на передний план), при наложении нескольких объектов друг на друга должен перемещаться только активный объект.
+**lab72** — same task using `QGraphicsScene` / `QGraphicsView`. Each shape is a `QGraphicsItem` subclass (`RectangleItem`, `EllipseItem`, `TriangleItem`) with exact boundary control. `ShapeScene` manages the scene.
 
-
-Задание 7.1: Реализовать данное задание с использованием пользовательской модели и рисования на виджетах через перегрузку методов: paintEvent, mouse(Press,Move,Release)Event, для упрощения сложные фигуры при определении границ для перемещения можно вписывать в прямоугольник.
-
-Задание 7.2: Реализовать данное задание с использованием модели графического представления и сцены, в данной реализации границы фигуры должны строго контролироваться, можно воспользоваться готовыми классами семейства QGraphicsItem для представления фигур.
+**Files:** `figure.h` — base for lab7; `shapescene.h` — scene for lab72.
